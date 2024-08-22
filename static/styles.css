@@ -1,0 +1,104 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue1
+{
+    color: #537fbe;
+}
+nav .navbar-brand .blue2
+{
+    color: #0069FF;
+}
+nav .navbar-brand .blue3
+{
+    color: #99C3FF;
+}
+nav .navbar-brand .blue4
+{
+    color: #053E8F;
+}
+
+body {
+    background-color: #fff;
+    color: #212529;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    width: 90%;
+}
+
+
+.header {
+    background-color: #477bff;
+    color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.section {
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+}
+
+.section:hover {
+    background-color: #4D81DC;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.popupmenu {
+    display: none;
+    margin-left: -23.1%;
+    margin-right: 80%;
+    width: 100%;
+    text-align: left;
+    font-weight: normal;
+}
+.selection:hover {
+    background-color: #7FA1DC;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+}
+
+
+table {
+    margin-bottom: 1rem;
+    width: 50%;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+tbody tr {
+    background-color: rgb(179, 208, 255, 0.3)
+}
+

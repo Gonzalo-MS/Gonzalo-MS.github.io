@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <img src="/static/icon.png" alt="database image" class="img-fluid" style="display: block; margin-left: 0px; width: 60%;">
+                </th>
+                <th>
+                    <form id="login" action="/login" method="post">
+                        <div class="mb-3">
+                            <input id="login/username" autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input autocomplete="off" class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Log In</button>
+                    </form>
+                    <form id="register" action="/register" method="post" style="display: none">
+                        <div class="mb-3">
+                            <input id="register/username" autocomplete="off" class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input autocomplete="off" class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+                        </div>
+                        <div class="mb-3">
+                            <input autocomplete="off" class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirmation" type="password">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Register</button>
+                    </form>
+                </th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        function login() {
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('register').style.display = 'none';
+            document.getElementById('blocktitle').innerHTML = 'CS50 DataBases Log In';
+            document.getElementById('login/username').focus();
+            document.getElementById('register/username').blur();
+        }
+        function register() {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('register').style.display = 'block';
+            document.getElementById('blocktitle').innerHTML = 'CS50 DataBases Register';
+            document.getElementById('login/username').blur();
+            document.getElementById('register/username').focus();
+        }
+    </script>
+{% endblock %}

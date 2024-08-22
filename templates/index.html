@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    <img id="menu-icon" alt="menu" src="/static/menu-icon.jpg" onclick="openmenu()" style="width: 15%; float: left; margin-left: -26%;">
+
+    <table id="menu" class="popupmenu">
+        <thead>
+            <tr style="background-color: transparent">
+                <th style="text-align: center; background-color: #537fbe; font-weight: bolder;">
+                    Your Databases
+                </th>
+                <td>
+                    <img
+                        id="menu-close-icon"
+                        alt="closemenu"
+                        src="/static/menu-close-icon.png"
+                        onclick="closemenu()"
+                        style="width: 5%; margin-left: 0%; display: none; transform: rotate(180deg);"
+                    >
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="section"  style="font-weight: bold; background-color: #5A96FF;">
+                    <div onclick="toggleuploadmenu()">Add DataBase</div>
+                    <form
+                        id="uploadfilemenu"
+                        action="/uploadfile"
+                        enctype="multipart/form-data"
+                        method="post"
+                    >
+                        <input type="file" id="fileInput" name="file" accept=".db" required>
+                        <div>
+                            <button type="submit">Upload</button>
+                            <span id="response"></span>
+                        </div>
+                    </form>
+                </th>
+            </tr>
+            <tr>
+                <th class="selection">
+                    example.db
+                </th>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script>
+        function openmenu() {
+            document.getElementById("menu-icon").style.display = "none";
+            document.getElementById("menu").style.display = "block";
+            document.getElementById("menu-close-icon").style.display = "block";
+
+        }
+        function closemenu() {
+            document.getElementById("menu-close-icon").style.display = "none";
+            document.getElementById("menu").style.display = "none";
+            document.getElementById("menu-icon").style.display = "block";
+            document.getElementById("uploadfilemenu").style.display = "none";
+        }
+        function toggleuploadmenu() {
+            let menu = document.getElementById("uploadfilemenu");
+            if (menu.style.display == "none") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        document.getElementById('uploadfilemenu').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const fileInput = document.getElementById('fileInput');
+
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.text();
+            document.getElementById('response').innerHTML = result;
+
+        });
+    </script>
+{% endblock %}
